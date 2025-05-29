@@ -1,0 +1,26 @@
+@keyframes popIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animated-title {
+  animation: popIn 0.8s ease-out;
+}
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1493810329807-5c9b71f8c1e9?fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+}
