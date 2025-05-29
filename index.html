@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Ullah's Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="text-gray-800">
+  <div class="overlay min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow p-6 text-center">
+      <h1 class="text-4xl font-extrabold text-blue-600 animated-title">Mohammad Ullah's Blog</h1>
+      <p class="text-gray-600">EEE Student at RUET | Capturing Life in Moments and Memories</p>
+    </header>
+
+    <!-- About Me -->
+    <section class="p-6 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-2">About Me</h2>
+      <p>
+        Hi, I'm Mohammad Ullah, a student of Electrical and Electronic Engineering (EEE) at Rajshahi University of Engineering and Technology (RUET). Through this blog, I share my personal stories, photography, and memorable life events. Each post is a piece of my journey, told through words and images.
+      </p>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="p-6 max-w-4xl mx-auto">
+      <input x-model="search" class="w-full p-2 border rounded" placeholder="Search posts..." />
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="space-y-6 p-6 max-w-4xl mx-auto" x-data="blogApp">
+      <template x-for="post in filteredPosts" :key="post.title">
+        <article class="bg-white p-4 rounded shadow">
+          <h3 class="text-xl font-bold" x-text="post.title"></h3>
+          <img class="my-2 rounded w-full object-cover" :src="post.image" alt="Blog photo" />
+          <p x-text="post.content"></p>
+          <div class="text-sm text-gray-500 mt-2" x-text="post.tags.join(', ')"></div>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-4">
+            <button class="like-button px-3 py-1 bg-red-100 text-red-500 rounded hover:bg-red-200">❤️ Like</button>
+            <div class="w-full">
+              <textarea class="w-full border rounded p-1" placeholder="Leave a comment..."></textarea>
+              <button class="mt-1 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Post</button>
+            </div>
+          </div>
+        </article>
+      </template>
+    </section>
+
+    <!-- Footer with Contact Form -->
+    <footer class="bg-white p-6 mt-10 text-center">
+      <h3 class="text-lg font-semibold mb-4">Contact Me</h3>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="max-w-xl mx-auto space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border p-2 rounded" />
+        <input type="email" name="_replyto" placeholder="Your Email" required class="w-full border p-2 rounded" />
+        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full border p-2 rounded"></textarea>
+        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          Send Message
+        </button>
+      </form>
+
+      <p class="mt-4 text-gray-600">Or email me directly at <a href="mailto:your.email@gmail.com" class="text-blue-500">your.email@gmail.com</a></p>
+
+      <div class="flex justify-center space-x-6 mt-4 text-xl">
+        <a href="https://facebook.com/yourusername" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/yourusername" class="text-pink-500 hover:text-pink-700"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/yourusername" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com/in/yourusername" class="text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yourusername" class="text-gray-700 hover:text-black"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
